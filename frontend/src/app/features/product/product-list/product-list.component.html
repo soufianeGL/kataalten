@@ -1,0 +1,51 @@
+<div class="product-list-container">
+    <!-- Filtering Section -->
+    <div class="filter-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (input)="applyFilter($event)" placeholder="Search by name" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select (selectionChange)="applyCategoryFilter($event.value)">
+          <mat-option value="">All</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <!-- Product Grid -->
+    <mat-grid-list cols="4" rowHeight="1:1.2" gutterSize="20px">
+      <mat-grid-tile *ngFor="let product of paginatedProducts">
+        <mat-card class="product-card">
+          <mat-card-header>
+            <div mat-card-avatar class="product-avatar"></div>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">{{ product.price | currency }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="addToCart(product)">
+              Add to Cart
+            </button>
+            <button mat-button color="accent" (click)="viewDetails(product._id)">
+              View Details
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!-- Pagination -->
+    <mat-paginator
+      [length]="filteredProducts.length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 20]"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>

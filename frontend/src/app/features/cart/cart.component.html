@@ -1,0 +1,24 @@
+<div class="cart-list">
+    <mat-card *ngFor="let item of cart" class="cart-card">
+      <mat-card-header>
+        <mat-card-title>{{ item.product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="item.product.image" alt="{{ item.product.name }}" />
+      <mat-card-content>
+        <p>{{ item.product.description }}</p>
+        <p>Price: {{ item.product.price | currency }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="removeFromCart(item.product._id)"
+        >
+          Remove
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

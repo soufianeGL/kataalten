@@ -1,0 +1,23 @@
+.product-list-container {
+    padding: .2rem;
+  
+    .filter-section {
+      display: flex;
+      gap: .2rem;
+      margin-bottom: .2rem;
+  
+      mat-form-field {
+        flex: 1;
+      }
+    }
+  
+    mat-grid-list {
+      margin-bottom: .2rem;
+    }
+  
+    mat-paginator {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  

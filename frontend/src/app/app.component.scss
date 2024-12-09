@@ -1,0 +1,106 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the layout always takes the full height of the viewport */
+    overflow: hidden;
+  
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+      .app-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+  
+      nav {
+        display: flex;
+        gap: 1.5rem;
+  
+        a, button {
+          color: #fff;
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: 500;
+          border: none;
+          background: none;
+          cursor: pointer;
+          transition: color 0.3s ease;
+  
+          &:hover {
+            color: #ffcc00;
+          }
+        }
+      }
+  
+      .header-actions {
+        display: flex;
+        align-items: center;
+  
+        mat-icon {
+          font-size: 32px;
+          color: #fff;
+          cursor: pointer;
+          position: relative;
+        }
+      }
+    }
+  
+    .content {
+      flex: 1;
+      overflow: auto;
+      padding: 2rem;
+      background: var(--background-gradient);
+    }
+  
+    .app-footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: #fff;
+      position: relative;
+    }
+  
+    .cart-dropdown {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 300px;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 1rem;
+      z-index: 100;
+  
+      h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+  
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+  
+        .cart-item-details {
+          p {
+            margin: 0;
+            font-size: 0.9rem;
+          }
+        }
+  
+        button {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+  

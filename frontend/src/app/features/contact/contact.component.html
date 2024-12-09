@@ -1,0 +1,24 @@
+<h1>Contact Us</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="contactForm.get('email')?.invalid">
+          Valid email is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Message</mat-label>
+        <textarea
+          matInput
+          rows="4"
+          formControlName="message"
+        ></textarea>
+        <mat-error *ngIf="contactForm.get('message')?.invalid">
+          Message is required and must be under 300 characters
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">
+        Submit
+      </button>
+    </form>

@@ -1,0 +1,22 @@
+.welcome-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 1rem;
+  }
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: #616161;
+  }
+  mat-card-content {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }

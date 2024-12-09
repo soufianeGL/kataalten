@@ -1,0 +1,35 @@
+<div class="layout">
+  <header class="app-header">
+    <nav>
+      <a routerLink="/products" routerLinkActive="active">Products</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+    <button mat-icon-button (click)="toggleCart()">
+      <mat-badge [matBadge]="cartCount$ | async" matBadgeColor="warn" matBadgeOverlap="false">
+        <mat-icon>shopping_cart</mat-icon>
+      </mat-badge>
+    </button>
+  </header>
+  <div *ngIf="isCartVisible" class="cart-dropdown">
+    <h3>Your Cart</h3>
+    <div *ngFor="let item of cartItems$ | async" class="cart-item">
+      <div class="cart-item-details">
+        <p><strong>{{ item.product.name }}</strong></p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price: {{ item.product.price | currency }}</p>
+      </div>
+      <button mat-icon-button (click)="removeFromCart(item.product._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <div class="cart-total">
+      <p><strong>Total Amount:</strong> {{ totalAmount$ | async | currency }}</p>
+    </div>
+  </div>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="app-footer">
+    <p>© {{ currentYear }} Alten. All rights reserved.</p>
+  </footer>
+</div>

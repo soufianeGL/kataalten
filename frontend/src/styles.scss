@@ -1,0 +1,47 @@
+/* Base styles for the entire application */
+:root {
+    --primary-color: #3f51b5;
+    --accent-color: #ff4081;
+    --background-gradient: linear-gradient(to bottom right, #ffffff, #f2f2f2);
+    --font-family: 'Roboto', sans-serif;
+    --border-radius: 8px;
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--background-gradient);
+    color: #333;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  button {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+  }
+  
+  /* Material-specific global styles */
+  mat-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
