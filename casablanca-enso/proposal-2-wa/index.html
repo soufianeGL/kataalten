@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>ENSO · 円相 — Casablanca</title>
+<meta name="description" content="ENSO. Un comptoir omakase de huit places à Casablanca. Le geste, le silence, et la saison.">
+<meta property="og:title" content="ENSO · Casablanca">
+<meta property="og:description" content="Un cercle. Huit places. Casablanca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f4ede1;
+    --paper-2:#ede5d3;
+    --ink:#2b241c;
+    --ink-soft:#5b5043;
+    --ink-mute:#8d8377;
+    --line:rgba(43,36,28,.16);
+    --accent:#7a3535;
+    --serif:'EB Garamond','Cormorant Garamond',Georgia,serif;
+    --jp:'Noto Serif JP',serif;
+    --sans:'Inter',-apple-system,sans-serif;
+  }
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body{
+    line-height:1.6;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(168,139,86,.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(122,53,53,.03) 0%, transparent 50%);
+    background-attachment:fixed;
+  }
+  img,video{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;border:0;background:0;cursor:pointer;color:inherit}
+
+  /* ============ NAV ============ */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:32px 56px;background:rgba(244,237,225,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .nav__brand{font-family:var(--jp);font-size:18px;letter-spacing:.5em;font-weight:300}
+  .nav__brand small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.4em;color:var(--ink-mute);text-transform:uppercase;margin-top:2px;font-weight:400}
+  .nav__links{display:flex;gap:40px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
+  .nav__links a:hover{color:var(--accent)}
+  .nav__cta{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
+  @media (max-width:780px){
+    .nav{padding:20px 24px}
+    .nav__links{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{min-height:100vh;padding:140px 56px 80px;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;max-width:1500px;margin:0 auto;position:relative}
+  .hero__circle{position:absolute;top:50%;right:8%;transform:translateY(-50%);width:340px;height:340px;border:1.5px solid var(--ink);border-radius:50%;opacity:.08;pointer-events:none}
+  .hero__circle::before{content:"";position:absolute;inset:24px;border:1px solid var(--ink);border-radius:50%;border-top-color:transparent;transform:rotate(-25deg)}
+  .hero__copy{position:relative;z-index:2}
+  .hero__sub{font-family:var(--sans);font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:36px;display:flex;align-items:center;gap:14px}
+  .hero__sub::before{content:"";display:block;width:32px;height:1px;background:var(--ink-mute)}
+  .hero__title{font-family:var(--serif);font-size:clamp(56px,8vw,128px);line-height:1;font-weight:400;letter-spacing:-.025em;margin-bottom:36px}
+  .hero__title em{font-style:italic;color:var(--accent)}
+  .hero__title small{display:block;font-family:var(--jp);font-size:.18em;letter-spacing:.3em;color:var(--ink-mute);margin-top:.3em;font-weight:300}
+  .hero__lede{font-size:22px;line-height:1.6;color:var(--ink-soft);max-width:520px;font-style:italic;margin-bottom:48px}
+  .hero__signals{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mute);padding-top:28px;border-top:1px solid var(--line)}
+  .hero__media{position:relative;aspect-ratio:4/5;overflow:hidden}
+  .hero__media img{width:100%;height:100%;object-fit:cover}
+  .hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(244,237,225,.3) 100%)}
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr;padding-top:120px}
+    .hero__circle{display:none}
+  }
+
+  /* ============ PHILO ============ */
+  .philo{padding:140px 56px;border-top:1px solid var(--line);position:relative}
+  .philo__inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:120px;align-items:start}
+  .philo__label{font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-mute);position:sticky;top:140px}
+  .philo__label::before{content:"○";display:block;font-size:24px;color:var(--accent);margin-bottom:12px;line-height:1}
+  .philo__body{max-width:720px}
+  .philo__lead{font-size:clamp(28px,3vw,40px);line-height:1.4;font-weight:400;letter-spacing:-.01em;color:var(--ink);margin-bottom:60px;font-style:italic}
+  .philo__lead::first-letter{font-family:var(--serif);font-size:1.6em;float:left;line-height:.9;margin-right:8px;margin-top:6px;color:var(--accent);font-style:normal}
+  .philo__cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .philo__col h3{font-family:var(--jp);font-size:13px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;font-weight:400}
+  .philo__col h3::after{content:" · ";color:var(--ink-mute)}
+  .philo__col h3 small{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--ink-mute);font-weight:400}
+  .philo__col p{font-size:16px;line-height:1.75;color:var(--ink-soft)}
+  @media (max-width:900px){
+    .philo__inner{grid-template-columns:1fr;gap:48px}
+    .philo__label{position:static}
+    .philo__cols{grid-template-columns:1fr;gap:32px}
+  }
+
+  /* ============ MOMENTS / IMAGE TRIPTYCH ============ */
+  .moments{padding:80px 56px}
+  .moments__inner{max-width:1500px;margin:0 auto}
+  .moments__head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+  .moments__head h2{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:400;font-style:italic;letter-spacing:-.02em}
+  .moments__head h2 em{font-family:var(--jp);font-style:normal;color:var(--accent);font-size:.7em;letter-spacing:.2em}
+  .moments__head p{font-family:var(--sans);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mute)}
+  .triptych{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:24px;align-items:end}
+  .triptych figure{position:relative;overflow:hidden}
+  .triptych figure:nth-child(1){aspect-ratio:4/5}
+  .triptych figure:nth-child(2){aspect-ratio:1/1;margin-bottom:60px}
+  .triptych figure:nth-child(3){aspect-ratio:3/4}
+  .triptych img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s ease}
+  .triptych figure:hover img{transform:scale(1.03)}
+  .triptych figcaption{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mute);margin-top:14px;display:flex;justify-content:space-between}
+  .triptych figcaption strong{color:var(--ink);font-weight:500}
+  @media (max-width:900px){
+    .triptych{grid-template-columns:1fr;gap:32px}
+    .triptych figure:nth-child(2){margin-bottom:0}
+  }
+
+  /* ============ MENU / CARTE ============ */
+  .carte{padding:160px 56px;background:var(--paper-2)}
+  .carte__inner{max-width:1100px;margin:0 auto}
+  .carte__head{text-align:center;margin-bottom:100px}
+  .carte__sub{font-family:var(--jp);font-size:13px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
+  .carte__title{font-family:var(--serif);font-size:clamp(48px,6vw,88px);font-weight:400;letter-spacing:-.02em;line-height:1}
+  .carte__title em{font-style:italic;color:var(--accent)}
+  .carte__intro{font-size:20px;line-height:1.6;color:var(--ink-soft);font-style:italic;margin-top:32px;max-width:620px;margin-left:auto;margin-right:auto}
+  .carte__list{list-style:none;border-top:1px solid var(--line)}
+  .carte__row{display:grid;grid-template-columns:60px 1.4fr 2fr 100px;gap:32px;padding:32px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding-left .4s ease}
+  .carte__row:hover{padding-left:16px}
+  .carte__num{font-family:var(--jp);font-size:14px;color:var(--accent);letter-spacing:.2em;font-weight:300}
+  .carte__name{font-family:var(--serif);font-size:24px;font-style:italic;font-weight:400;letter-spacing:-.01em}
+  .carte__name small{display:block;font-family:var(--jp);font-size:10px;letter-spacing:.4em;color:var(--ink-mute);margin-top:6px;font-style:normal;text-transform:uppercase}
+  .carte__desc{font-size:15px;line-height:1.7;color:var(--ink-soft)}
+  .carte__price{font-family:var(--serif);font-size:18px;color:var(--ink-mute);text-align:right;font-style:italic}
+  .carte__foot{margin-top:80px;text-align:center;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mute)}
+  @media (max-width:780px){
+    .carte{padding:100px 24px}
+    .carte__row{grid-template-columns:auto 1fr;gap:8px 16px}
+    .carte__num{grid-row:1/3}
+    .carte__desc{grid-column:2;margin-top:8px}
+    .carte__price{grid-column:2;text-align:left;margin-top:4px}
+  }
+
+  /* ============ ROOM ============ */
+  .room{position:relative;height:90vh;min-height:560px;overflow:hidden}
+  .room img{width:100%;height:100%;object-fit:cover}
+  .room__inner{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 8vw 8vw}
+  .room__inner blockquote{font-family:var(--serif);font-size:clamp(28px,3.5vw,52px);line-height:1.3;font-weight:400;font-style:italic;max-width:760px;color:var(--paper);text-shadow:0 2px 24px rgba(0,0,0,.4)}
+  .room__inner cite{display:block;margin-top:24px;font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--paper);font-style:normal;opacity:.85}
+
+  /* ============ CHEF ============ */
+  .chef{padding:160px 56px;display:grid;grid-template-columns:1.2fr 1fr;gap:120px;max-width:1400px;margin:0 auto;align-items:center}
+  .chef__copy{order:1}
+  .chef__sub{font-family:var(--jp);font-size:12px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;margin-bottom:24px}
+  .chef__name{font-family:var(--serif);font-size:clamp(48px,5vw,76px);line-height:1;font-weight:400;letter-spacing:-.02em;margin-bottom:14px}
+  .chef__name em{font-style:italic}
+  .chef__role{font-family:var(--sans);font-size:11px;letter-spacing:.4em;color:var(--ink-mute);text-transform:uppercase;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+  .chef p{font-size:18px;line-height:1.8;color:var(--ink-soft)}
+  .chef p+p{margin-top:1.4em}
+  .chef__sig{margin-top:40px;font-family:var(--serif);font-size:36px;font-style:italic;color:var(--accent);font-weight:400}
+  .chef__media{position:relative;aspect-ratio:3/4;overflow:hidden;order:2}
+  .chef__media img{width:100%;height:100%;object-fit:cover;filter:contrast(.95) brightness(1.02)}
+  @media (max-width:900px){
+    .chef{grid-template-columns:1fr;gap:48px;padding:100px 24px}
+    .chef__media{order:1;aspect-ratio:1/1}
+    .chef__copy{order:2}
+  }
+
+  /* ============ DETAILS ============ */
+  .details{padding:140px 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .details__inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:80px}
+  .detail h4{font-family:var(--jp);font-size:13px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:18px;font-weight:400}
+  .detail h4::before{content:"";display:block;width:24px;height:1px;background:var(--accent);margin-bottom:18px}
+  .detail p{font-family:var(--serif);font-size:18px;line-height:1.7;color:var(--ink)}
+  .detail p+p{margin-top:.6em;color:var(--ink-soft);font-size:15px;font-style:italic}
+  @media (max-width:780px){
+    .details__inner{grid-template-columns:1fr;gap:48px}
+  }
+
+  /* ============ RESERVE ============ */
+  .reserve{padding:200px 56px;text-align:center;position:relative;overflow:hidden}
+  .reserve__inner{max-width:760px;margin:0 auto;position:relative;z-index:2}
+  .reserve__circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border:1.5px solid var(--accent);border-radius:50%;opacity:.12;pointer-events:none}
+  .reserve__circle::after{content:"";position:absolute;inset:30px;border:1px solid var(--accent);border-radius:50%;border-top-color:transparent;transform:rotate(15deg);opacity:.6}
+  .reserve__sub{font-family:var(--jp);font-size:13px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;margin-bottom:32px}
+  .reserve__title{font-family:var(--serif);font-size:clamp(48px,6vw,96px);line-height:1;font-weight:400;letter-spacing:-.025em;margin-bottom:36px}
+  .reserve__title em{font-style:italic;color:var(--accent)}
+  .reserve__text{font-size:20px;line-height:1.7;color:var(--ink-soft);margin-bottom:60px;font-style:italic}
+  .reserve__cta{display:inline-block;padding:20px 56px;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;transition:all .3s ease}
+  .reserve__cta:hover{background:var(--accent)}
+  .reserve__phone{display:block;margin-top:36px;font-family:var(--serif);font-size:18px;color:var(--ink-mute);font-style:italic}
+
+  /* ============ FOOTER ============ */
+  .foot{padding:80px 56px 36px;background:var(--ink);color:var(--paper)}
+  .foot__inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(244,237,225,.15)}
+  .foot__brand{font-family:var(--jp);font-size:28px;letter-spacing:.4em;font-weight:300;margin-bottom:20px}
+  .foot__brand+p{font-family:var(--serif);font-size:16px;line-height:1.7;color:rgba(244,237,225,.7);font-style:italic;max-width:340px}
+  .foot__col h4{font-family:var(--sans);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(244,237,225,.6);margin-bottom:20px;font-weight:400}
+  .foot__col p,.foot__col a{font-family:var(--serif);font-size:15px;line-height:1.9;color:rgba(244,237,225,.85);display:block}
+  .foot__col a:hover{color:var(--paper)}
+  .foot__base{max-width:1400px;margin:36px auto 0;display:flex;justify-content:space-between;font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,237,225,.5)}
+  @media (max-width:780px){
+    .foot__inner{grid-template-columns:1fr 1fr;gap:40px}
+    .foot__base{flex-direction:column;gap:8px;text-align:center}
+  }
+
+  /* ============ AUDIO ============ */
+  .audio{position:fixed;bottom:32px;right:32px;z-index:90;width:48px;height:48px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);transition:all .3s ease;box-shadow:0 4px 24px rgba(43,36,28,.08)}
+  .audio:hover{border-color:var(--accent);color:var(--accent)}
+  .audio.playing{color:var(--accent);border-color:var(--accent)}
+  .audio.playing::before{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid var(--accent);opacity:.5;animation:p 2.4s ease-in-out infinite}
+  @keyframes p{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.2);opacity:0}}
+  .audio svg{width:16px;height:16px}
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(30px);transition:opacity 1.2s cubic-bezier(.2,.6,.2,1),transform 1.2s cubic-bezier(.2,.6,.2,1)}
+  .rev.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__brand">エンソウ<small>ENSO · CASABLANCA</small></div>
+  <div class="nav__links">
+    <a href="#philo">Manifeste</a>
+    <a href="#carte">Carte</a>
+    <a href="#chef">Chef</a>
+    <a href="#reserve">Réserver</a>
+  </div>
+  <a href="#reserve" class="nav__cta">+212 6 66 01 43 19</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero__circle"></div>
+  <div class="hero__copy">
+    <p class="hero__sub">Casablanca · El Cenador</p>
+    <h1 class="hero__title">Le <em>cercle</em> tracé d'un seul souffle.<small>円相 · Enso</small></h1>
+    <p class="hero__lede">Un comptoir omakase de huit places. Pas de carte. Pas de hâte. Le geste, la saison, et le silence — depuis 2021.</p>
+    <div class="hero__signals">
+      <span>○ Omakase</span>
+      <span>○ 8 places</span>
+      <span>○ 12 services</span>
+      <span>○ Sur réservation</span>
+    </div>
+  </div>
+  <div class="hero__media">
+    <img src="assets/enso-wa-hero.jpg" alt="Bol de matcha sur papier washi">
+  </div>
+</section>
+
+<!-- ===== PHILO ===== -->
+<section class="philo" id="philo">
+  <div class="philo__inner">
+    <div class="philo__label">Manifeste · I</div>
+    <div class="philo__body">
+      <p class="philo__lead rev">Le sushi n'est pas un repas. C'est une succession de gestes — celui du marché, celui du couteau, celui du chef qui dépose la pièce, et celui de l'invité qui la reçoit. ENSO n'est rien d'autre que ce passage de main en main, répété douze fois.</p>
+      <div class="philo__cols">
+        <div class="philo__col rev">
+          <h3>旬 <small>Shun · La saison</small></h3>
+          <p>Le poisson change chaque jour. L'oursin de Dakhla d'octobre n'est pas celui de février. Nous achetons à l'aube, au port. Si la mer ne donne rien, le menu se réinvente avant le service.</p>
+        </div>
+        <div class="philo__col rev">
+          <h3>間 <small>Ma · L'intervalle</small></h3>
+          <p>Entre deux pièces, un silence. C'est dans cet écart que la précédente s'achève et que la suivante se prépare. Nous servons lentement. Une omakase chez nous dure deux heures.</p>
+        </div>
+        <div class="philo__col rev">
+          <h3>侘 <small>Wabi · L'imperfection</small></h3>
+          <p>La céramique est artisanale. Le bois marque le temps. Le riz ne sera jamais identique. Ce qui ne peut être reproduit est ce qui mérite d'être servi.</p>
+        </div>
+        <div class="philo__col rev">
+          <h3>禅 <small>Zen · La présence</small></h3>
+          <p>Pas de musique forte. Pas de service au plateau. Pas de photographies au flash. ENSO est un lieu où l'on écoute manger.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOMENTS ===== -->
+<section class="moments rev">
+  <div class="moments__inner">
+    <div class="moments__head">
+      <h2>Quelques <em>瞬間</em><br>moments.</h2>
+      <p>Photographies — Studio ENSO</p>
+    </div>
+    <div class="triptych">
+      <figure>
+        <img src="assets/enso-wa-room.jpg" alt="La salle">
+        <figcaption><strong>I.</strong> La salle · 8 couverts</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/enso-wa-texture.jpg" alt="Trait de sumi sur washi">
+        <figcaption><strong>II.</strong> Sumi · Trait unique</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/enso-wa-ingredients.jpg" alt="Ingrédients du jour">
+        <figcaption><strong>III.</strong> Le marché du matin</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARTE ===== -->
+<section class="carte" id="carte">
+  <div class="carte__inner">
+    <div class="carte__head rev">
+      <p class="carte__sub">お任せ · Omakase</p>
+      <h2 class="carte__title">Le menu, <em>ce soir</em>.</h2>
+      <p class="carte__intro">Voici la composition d'un service récent. Le déroulé évolue avec l'arrivage du matin et l'humeur du chef.</p>
+    </div>
+
+    <ol class="carte__list">
+      <li class="carte__row rev"><span class="carte__num">一</span><div class="carte__name">Sakizuke<small>Ouverture</small></div><div class="carte__desc">Bouchée du matin — chrysanthème, dashi froid, daikon ciselé en fil.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">二</span><div class="carte__name">Owan<small>Bouillon</small></div><div class="carte__desc">Suimono à la palourde de Dar Bouazza et zeste de yuzu, kombu Hokkaido.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">三</span><div class="carte__name">Tsukuri<small>Sashimi</small></div><div class="carte__desc">Trois découpes du jour — Hirame, Akami massé, oursin sur glace.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">四</span><div class="carte__name">Yakimono<small>Grillé</small></div><div class="carte__desc">Anguille du Lac Hamana, sauce kabayaki, sancho fraîchement moulu.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">五</span><div class="carte__name">Mushimono<small>Vapeur</small></div><div class="carte__desc">Chawanmushi à l'ormeau, perles de gingembre confit.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">六</span><div class="carte__name">Nigiri · I<small>Akami</small></div><div class="carte__desc">Maguro coupé droit, riz à l'akazu, wasabi râpé minute.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">七</span><div class="carte__name">Nigiri · II<small>Chutoro</small></div><div class="carte__desc">Le ventre intermédiaire. La signature.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">八</span><div class="carte__name">Nigiri · III<small>Otoro</small></div><div class="carte__desc">Le ventre gras, scellé à la flamme, finition au sel de Maldon.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">九</span><div class="carte__name">Nigiri · IV<small>Wagyu A5</small></div><div class="carte__desc">Aburi au chalumeau de cèdre, drop de tamari vieilli, truffe noire.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">十</span><div class="carte__name">Nigiri · V<small>Uni gunkan</small></div><div class="carte__desc">Oursin de Dakhla sur riz tiède, ceinture de nori grillé.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">十一</span><div class="carte__name">Tamago<small>L'œuf</small></div><div class="carte__desc">Quinze couches d'œuf moelleux — la pâtisserie cachée du sushi-ya.</div><div class="carte__price">—</div></li>
+      <li class="carte__row rev"><span class="carte__num">十二</span><div class="carte__name">Mizugashi<small>Final</small></div><div class="carte__desc">Mochi maison, sirop de prune, matcha cérémoniel d'Uji.</div><div class="carte__price">—</div></li>
+    </ol>
+
+    <p class="carte__foot">Omakase · 1 800 MAD par personne · Accord saké en supplément · Service à 19h00 · 21h30</p>
+  </div>
+</section>
+
+<!-- ===== ROOM FULL BLEED ===== -->
+<section class="room rev">
+  <img src="assets/enso-wa-room.jpg" alt="">
+  <div class="room__inner">
+    <blockquote>"Huit chaises. Une porte qui se referme. Et le monde qui s'éloigne pour <em>deux heures</em>."</blockquote>
+    <cite>— Le Matin du Sahara, 2024</cite>
+  </div>
+</section>
+
+<!-- ===== CHEF ===== -->
+<section class="chef" id="chef">
+  <div class="chef__copy rev">
+    <p class="chef__sub">板前 · Itamae</p>
+    <h2 class="chef__name">Celso <em>Szczerba</em></h2>
+    <p class="chef__role">Chef du comptoir — depuis 2021</p>
+    <p>Vingt années de couteaux. Tokyo. São Paulo. Marrakech. Une obsession traverse les villes : la précision du geste juste, le poisson qui ne ment pas, le riz qui tient une seconde de plus.</p>
+    <p>Au comptoir d'ENSO, le chef Szczerba travaille seul. Il achète, il taille, il sert, il s'assied parfois pour parler au huitième invité — celui qui s'est levé tôt pour réserver.</p>
+    <p>Ce n'est pas une mise en scène. C'est ce qu'est un sushi-ya, depuis trois cents ans, à Tokyo et désormais à Casablanca.</p>
+    <p class="chef__sig">— C.S.</p>
+  </div>
+  <div class="chef__media rev">
+    <img src="assets/enso-wa-ingredients.jpg" alt="">
+  </div>
+</section>
+
+<!-- ===== DETAILS ===== -->
+<section class="details">
+  <div class="details__inner">
+    <div class="detail rev">
+      <h4>Adresse</h4>
+      <p>Complexe au Petit Rocher<br>El Cenador<br>Casablanca</p>
+      <p>Une porte discrète à l'intérieur d'El Cenador. Sonner à l'interphone marqué 円相.</p>
+    </div>
+    <div class="detail rev">
+      <h4>Horaires</h4>
+      <p>Mardi — Samedi<br>Service unique à 19h00<br>Service tardif à 21h30</p>
+      <p>Fermé dimanche & lundi. Réouverture après le marché.</p>
+    </div>
+    <div class="detail rev">
+      <h4>Réservation</h4>
+      <p>Téléphone uniquement<br>+212 6 66 01 43 19<br>14h — 22h</p>
+      <p>Acompte de 500 MAD à la réservation. Annulation gratuite jusqu'à 48h.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVE ===== -->
+<section class="reserve" id="reserve">
+  <div class="reserve__circle"></div>
+  <div class="reserve__inner">
+    <p class="reserve__sub">予約 · Yoyaku</p>
+    <h2 class="reserve__title">Une <em>place</em>.<br>À votre nom.</h2>
+    <p class="reserve__text">Le comptoir n'accepte que huit invités par service. La réservation se fait par téléphone — c'est notre première conversation.</p>
+    <a href="tel:+212666014319" class="reserve__cta">Appeler le comptoir</a>
+    <span class="reserve__phone">+212 6 66 01 43 19</span>
+  </div>
+</section>
+
+<!-- ===== FOOT ===== -->
+<footer class="foot">
+  <div class="foot__inner">
+    <div>
+      <div class="foot__brand">ENSO</div>
+      <p>Le cercle tracé d'un seul souffle. Un comptoir omakase à Casablanca.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Adresse</h4>
+      <p>Complexe au Petit Rocher<br>El Cenador, Casablanca</p>
+    </div>
+    <div class="foot__col">
+      <h4>Horaires</h4>
+      <p>Mar — Sam<br>19h · 21h30</p>
+    </div>
+    <div class="foot__col">
+      <h4>Contact</h4>
+      <a href="tel:+212666014319">+212 6 66 01 43 19</a>
+      <a href="https://instagram.com/enso.casablanca">@enso.casablanca</a>
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>© ENSO · 円相 · 2025</span>
+    <span>L'art du sushi · Casablanca</span>
+  </div>
+</footer>
+
+<!-- ===== AUDIO ===== -->
+<button class="audio" id="audio" aria-label="Activer l'ambiance sonore">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M11 5L6 9H2v6h4l5 4V5z" stroke-linejoin="round"/>
+    <path d="M15.54 8.46a5 5 0 010 7.07" stroke-linecap="round"/>
+  </svg>
+</button>
+<audio id="ambient" loop preload="auto"><source src="assets/enso-ambiance.mp3" type="audio/mpeg"></audio>
+
+<script>
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+  const btn=document.getElementById('audio'), aud=document.getElementById('ambient');
+  aud.volume=0.3;
+  btn.addEventListener('click',()=>{
+    if(aud.paused){aud.play().then(()=>btn.classList.add('playing')).catch(()=>{})}
+    else{aud.pause();btn.classList.remove('playing')}
+  });
+</script>
+
+</body>
+</html>
