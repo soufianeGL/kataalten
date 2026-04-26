@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>ENSO — L'art du Sushi à Casablanca</title>
+<meta name="description" content="ENSO. Une expérience omakase confidentielle au cœur de Casablanca. Le chef Celso Szczerba compose une partition japonaise en 12 services.">
+<meta property="og:title" content="ENSO — Casablanca">
+<meta property="og:description" content="L'art du sushi. Confidentiel. Casablanca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+JP:wght@200;300;400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0908;
+    --bg-2:#141210;
+    --ink:#f5f1e8;
+    --ink-mute:#9a948a;
+    --accent:#c1272d;
+    --gold:#a88b56;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --jp:'Noto Serif JP',serif;
+    --sans:'Inter',-apple-system,sans-serif;
+  }
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body{line-height:1.55}
+  img,video{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;border:0;background:0;cursor:pointer;color:inherit}
+
+  /* ============ NAV ============ */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;mix-blend-mode:difference;color:#fff}
+  .nav__brand{font-family:var(--jp);font-size:14px;letter-spacing:.4em;font-weight:300}
+  .nav__links{display:flex;gap:36px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+  .nav__cta{font-size:11px;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:2px}
+  @media (max-width:780px){
+    .nav{padding:20px 24px}
+    .nav__links{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{position:relative;height:100vh;min-height:680px;width:100%;overflow:hidden;background:#000}
+  .hero__media{position:absolute;inset:0}
+  .hero__media video,.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero__veil{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.55) 100%),linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 30%,transparent 70%,rgba(0,0,0,.6) 100%)}
+  .hero__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px}
+  .hero__kanji{font-family:var(--jp);font-size:clamp(180px,22vw,360px);line-height:.9;font-weight:200;color:rgba(245,241,232,.06);position:absolute;top:8%;right:-10px;letter-spacing:-.04em;user-select:none;pointer-events:none}
+  .hero__sub{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:28px}
+  .hero__title{font-family:var(--serif);font-size:clamp(56px,8vw,140px);line-height:.95;font-weight:300;letter-spacing:-.02em;max-width:1100px}
+  .hero__title em{font-style:italic;color:var(--gold)}
+  .hero__meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:48px;padding-top:24px;border-top:1px solid rgba(245,241,232,.15);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-mute)}
+  .hero__meta span:nth-child(2){color:var(--ink)}
+  @media (max-width:780px){
+    .hero__content{padding:0 24px 60px}
+    .hero__meta{flex-direction:column;gap:12px;align-items:flex-start}
+  }
+
+  /* ============ MARQUEE ============ */
+  .marquee{overflow:hidden;border-top:1px solid rgba(245,241,232,.1);border-bottom:1px solid rgba(245,241,232,.1);padding:18px 0;background:#000}
+  .marquee__track{display:flex;gap:60px;white-space:nowrap;animation:slide 35s linear infinite;font-family:var(--jp);font-size:13px;letter-spacing:.3em;color:var(--ink-mute);text-transform:uppercase}
+  .marquee__track span{display:inline-flex;align-items:center;gap:60px}
+  .marquee__track span::after{content:"●";color:var(--accent)}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============ INTRO ============ */
+  .intro{padding:160px 48px;display:grid;grid-template-columns:1fr 1.4fr;gap:120px;max-width:1600px;margin:0 auto;align-items:start}
+  .intro__label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);position:sticky;top:120px}
+  .intro__label::before{content:"";display:block;width:48px;height:1px;background:var(--gold);margin-bottom:12px}
+  .intro__text{font-family:var(--serif);font-size:clamp(28px,3vw,42px);line-height:1.35;font-weight:300;letter-spacing:-.01em}
+  .intro__text strong{font-style:italic;color:var(--gold);font-weight:400}
+  .intro__text p+p{margin-top:1.4em}
+  @media (max-width:900px){
+    .intro{grid-template-columns:1fr;gap:48px;padding:100px 24px}
+    .intro__label{position:static}
+  }
+
+  /* ============ TWO-UP IMAGE ============ */
+  .twoup{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 8px}
+  .twoup__cell{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+  .twoup__cell img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.6,.2,1)}
+  .twoup__cell:hover img{transform:scale(1.04)}
+  .twoup__cell figcaption{position:absolute;left:24px;bottom:24px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);background:rgba(0,0,0,.55);padding:8px 14px;backdrop-filter:blur(8px)}
+  @media (max-width:700px){
+    .twoup{grid-template-columns:1fr}
+  }
+
+  /* ============ OMAKASE ============ */
+  .omakase{padding:200px 48px;background:linear-gradient(180deg,#0a0908 0%,#141210 100%);position:relative;overflow:hidden}
+  .omakase__kanji{position:absolute;top:80px;left:-30px;font-family:var(--jp);font-size:clamp(220px,28vw,440px);line-height:.85;color:rgba(245,241,232,.04);font-weight:200;letter-spacing:-.04em;pointer-events:none;user-select:none}
+  .omakase__inner{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+  .omakase__head{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;margin-bottom:120px;align-items:end}
+  .omakase__sub{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .omakase__title{font-family:var(--serif);font-size:clamp(48px,6vw,96px);line-height:1;font-weight:300;letter-spacing:-.02em}
+  .omakase__title em{font-style:italic;color:var(--gold)}
+  .omakase__intro{font-family:var(--serif);font-size:22px;line-height:1.6;color:var(--ink-mute);font-weight:300;font-style:italic}
+  .courses{display:grid;grid-template-columns:repeat(12,1fr);gap:60px 40px;border-top:1px solid rgba(245,241,232,.15);padding-top:60px}
+  .course{grid-column:span 4;display:flex;gap:24px;padding-bottom:32px;border-bottom:1px solid rgba(245,241,232,.08)}
+  .course__num{font-family:var(--jp);font-size:14px;color:var(--gold);letter-spacing:.2em;padding-top:6px;min-width:32px}
+  .course__body h3{font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;margin-bottom:6px}
+  .course__body .jp{font-family:var(--jp);font-size:11px;color:var(--gold);letter-spacing:.4em;text-transform:uppercase;margin-bottom:14px;display:block}
+  .course__body p{font-size:14px;line-height:1.6;color:var(--ink-mute)}
+  @media (max-width:1100px){.course{grid-column:span 6}}
+  @media (max-width:680px){
+    .omakase{padding:120px 24px}
+    .omakase__head{grid-template-columns:1fr;gap:32px}
+    .course{grid-column:span 12}
+  }
+
+  /* ============ FULL BLEED IMAGE ============ */
+  .fullbleed{position:relative;height:90vh;min-height:600px;overflow:hidden}
+  .fullbleed img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 8s ease-out}
+  .fullbleed.in img{transform:scale(1)}
+  .fullbleed__quote{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;background:linear-gradient(90deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 60%,transparent 100%)}
+  .fullbleed__quote blockquote{font-family:var(--serif);font-size:clamp(32px,4.5vw,72px);line-height:1.15;font-weight:300;font-style:italic;max-width:900px;letter-spacing:-.01em}
+  .fullbleed__quote cite{display:block;margin-top:32px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+  /* ============ CHEF ============ */
+  .chef{padding:200px 48px;display:grid;grid-template-columns:1.1fr 1fr;gap:100px;max-width:1500px;margin:0 auto;align-items:center}
+  .chef__image{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+  .chef__image img{width:100%;height:100%;object-fit:cover}
+  .chef__image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.6) 100%)}
+  .chef__sub{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+  .chef__name{font-family:var(--serif);font-size:clamp(48px,5vw,72px);line-height:1;font-weight:300;letter-spacing:-.02em;margin-bottom:12px}
+  .chef__name em{font-style:italic}
+  .chef__role{font-family:var(--jp);font-size:13px;letter-spacing:.4em;color:var(--ink-mute);text-transform:uppercase;margin-bottom:40px}
+  .chef p{font-family:var(--serif);font-size:20px;line-height:1.7;color:var(--ink-mute);font-weight:300}
+  .chef p+p{margin-top:1.2em}
+  .chef__sig{margin-top:40px;font-family:var(--serif);font-size:32px;font-style:italic;color:var(--gold);font-weight:400}
+  @media (max-width:900px){
+    .chef{grid-template-columns:1fr;gap:48px;padding:120px 24px}
+  }
+
+  /* ============ STATS / AWARDS ============ */
+  .awards{padding:140px 48px;border-top:1px solid rgba(245,241,232,.1);border-bottom:1px solid rgba(245,241,232,.1)}
+  .awards__inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+  .award{text-align:center;padding:0 20px}
+  .award__num{font-family:var(--serif);font-size:clamp(56px,5vw,80px);line-height:1;font-weight:300;color:var(--gold);font-style:italic}
+  .award__label{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--ink-mute);margin-top:18px}
+  @media (max-width:780px){
+    .awards__inner{grid-template-columns:repeat(2,1fr);gap:48px 20px}
+  }
+
+  /* ============ RESERVE / CTA ============ */
+  .reserve{padding:200px 48px;text-align:center;position:relative;overflow:hidden}
+  .reserve__kanji{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--jp);font-size:clamp(280px,40vw,640px);line-height:.85;color:rgba(168,139,86,.05);font-weight:200;pointer-events:none;user-select:none}
+  .reserve__inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+  .reserve__sub{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:32px}
+  .reserve__title{font-family:var(--serif);font-size:clamp(48px,6vw,96px);line-height:1;font-weight:300;letter-spacing:-.02em;margin-bottom:32px}
+  .reserve__title em{font-style:italic;color:var(--gold)}
+  .reserve__text{font-family:var(--serif);font-size:22px;line-height:1.6;color:var(--ink-mute);margin-bottom:56px;font-style:italic;font-weight:300}
+  .reserve__cta{display:inline-block;padding:22px 60px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:.4em;text-transform:uppercase;transition:all .4s ease}
+  .reserve__cta:hover{background:var(--gold);color:var(--bg)}
+  .reserve__phone{display:block;margin-top:36px;font-family:var(--serif);font-size:18px;color:var(--ink-mute);font-style:italic}
+
+  /* ============ FOOTER ============ */
+  .foot{background:#000;padding:80px 48px 40px;border-top:1px solid rgba(245,241,232,.1)}
+  .foot__inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(245,241,232,.08)}
+  .foot__brand{font-family:var(--jp);font-size:32px;letter-spacing:.3em;font-weight:300;margin-bottom:18px}
+  .foot__brand+p{font-family:var(--serif);font-size:16px;line-height:1.7;color:var(--ink-mute);font-style:italic;max-width:340px}
+  .foot__col h4{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .foot__col p,.foot__col a{font-size:14px;line-height:1.9;color:var(--ink-mute);display:block}
+  .foot__col a:hover{color:var(--ink)}
+  .foot__base{max-width:1400px;margin:40px auto 0;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-mute)}
+  @media (max-width:780px){
+    .foot__inner{grid-template-columns:1fr 1fr;gap:40px}
+    .foot__base{flex-direction:column;gap:8px;text-align:center}
+  }
+
+  /* ============ AUDIO TOGGLE ============ */
+  .audio{position:fixed;bottom:32px;right:32px;z-index:90;width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);border:1px solid rgba(245,241,232,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:all .3s ease}
+  .audio:hover{border-color:var(--gold)}
+  .audio.playing::before{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--gold);opacity:.4;animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.15);opacity:0}}
+  .audio svg{width:18px;height:18px}
+
+  /* reveal anim */
+  .rev{opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.2,.6,.2,1),transform 1.2s cubic-bezier(.2,.6,.2,1)}
+  .rev.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__brand">エンソウ — ENSO</div>
+  <div class="nav__links">
+    <a href="#omakase">Omakase</a>
+    <a href="#chef">Chef</a>
+    <a href="#reserve">Réservation</a>
+  </div>
+  <a href="#reserve" class="nav__cta">+212 6 66 01 43 19</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero__media">
+    <video autoplay muted loop playsinline poster="assets/enso-kuro-hero.jpg">
+      <source src="assets/enso-ambient.mp4" type="video/mp4">
+    </video>
+    <img src="assets/enso-kuro-hero.jpg" alt="">
+    <div class="hero__veil"></div>
+  </div>
+  <div class="hero__kanji">円相</div>
+  <div class="hero__content">
+    <p class="hero__sub">Casablanca · Omakase · Depuis 2021</p>
+    <h1 class="hero__title">L'art du sushi,<br>servi à <em>douze mains</em>.</h1>
+    <div class="hero__meta">
+      <span>N°34°02′ E07°36′</span>
+      <span>Complexe au Petit Rocher · El Cenador</span>
+      <span>Sur réservation uniquement</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>EDOMAE</span><span>OMAKASE</span><span>HONMAGURO</span><span>WABI · SABI</span><span>CHEF CELSO SZCZERBA</span><span>HINOKI</span><span>UNI</span><span>OTORO</span>
+    <span>EDOMAE</span><span>OMAKASE</span><span>HONMAGURO</span><span>WABI · SABI</span><span>CHEF CELSO SZCZERBA</span><span>HINOKI</span><span>UNI</span><span>OTORO</span>
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<section class="intro rev">
+  <div class="intro__label">Manifeste</div>
+  <div class="intro__text">
+    <p>Derrière une porte discrète d'El Cenador se cache un comptoir de huit places. Pas de carte. Pas de menu. Une seule règle : <strong>se laisser conduire</strong>.</p>
+    <p>ENSO — du japonais 円相, le cercle tracé d'un seul souffle — est un voyage en douze services où chaque pièce naît du marché du jour, du couteau du chef, et d'un silence devenu rare à Casablanca.</p>
+  </div>
+</section>
+
+<!-- ===== TWO-UP ===== -->
+<div class="twoup rev">
+  <figure class="twoup__cell"><img src="assets/enso-kuro-counter.jpg" alt="Le comptoir omakase"><figcaption>Le comptoir — huit places</figcaption></figure>
+  <figure class="twoup__cell"><img src="assets/enso-kuro-detail.jpg" alt="Otoro nigiri"><figcaption>Otoro · pièce n°4</figcaption></figure>
+</div>
+
+<!-- ===== OMAKASE ===== -->
+<section class="omakase" id="omakase">
+  <div class="omakase__kanji">献立</div>
+  <div class="omakase__inner">
+    <div class="omakase__head rev">
+      <div>
+        <p class="omakase__sub">お任せ · Le menu</p>
+        <h2 class="omakase__title">Douze<br><em>services.</em></h2>
+      </div>
+      <p class="omakase__intro">Le déroulé change chaque jour. Voici un témoignage récent — composé à partir de Honmaguro de Cadix, d'oursins de Dakhla et d'un wagyu A5 livré le matin même.</p>
+    </div>
+
+    <div class="courses">
+      <article class="course rev"><span class="course__num">01</span><div class="course__body"><span class="jp">Sakizuke</span><h3>Amuse-bouche du marché</h3><p>Une bouchée pour ouvrir l'appétit — chrysanthème, dashi froid, daikon ciselé.</p></div></article>
+      <article class="course rev"><span class="course__num">02</span><div class="course__body"><span class="jp">Owan</span><h3>Bouillon clair</h3><p>Suimono à la palourde et au yuzu, infusé d'algue kombu de Hokkaido.</p></div></article>
+      <article class="course rev"><span class="course__num">03</span><div class="course__body"><span class="jp">Tsukuri</span><h3>Sashimi du jour</h3><p>Trois découpes — Hirame en fine pellicule, Akami massé, oursin sur glace.</p></div></article>
+      <article class="course rev"><span class="course__num">04</span><div class="course__body"><span class="jp">Yakimono</span><h3>Anguille grillée</h3><p>Unagi du Lac Hamana, sauce kabayaki tirée à l'eau de riz, sancho fraîchement broyé.</p></div></article>
+      <article class="course rev"><span class="course__num">05</span><div class="course__body"><span class="jp">Mushimono</span><h3>Chawanmushi</h3><p>Crème vapeur d'œuf et dashi, ormeau braisé, perles de gingembre.</p></div></article>
+      <article class="course rev"><span class="course__num">06</span><div class="course__body"><span class="jp">Nigiri · I</span><h3>Akami</h3><p>Première pièce. Maguro coupé droit, riz vinaigré au rouge d'akazu, wasabi râpé minute.</p></div></article>
+      <article class="course rev"><span class="course__num">07</span><div class="course__body"><span class="jp">Nigiri · II</span><h3>Chutoro</h3><p>Le ventre intermédiaire — fondu en bouche, signature de la maison.</p></div></article>
+      <article class="course rev"><span class="course__num">08</span><div class="course__body"><span class="jp">Nigiri · III</span><h3>Otoro</h3><p>Pièce n°8. Le ventre gras, scellé à la flamme, finition au sel de Maldon.</p></div></article>
+      <article class="course rev"><span class="course__num">09</span><div class="course__body"><span class="jp">Nigiri · IV</span><h3>Wagyu A5</h3><p>Aburi au chalumeau de cèdre, drop de tamari vieilli douze mois, truffe noire.</p></div></article>
+      <article class="course rev"><span class="course__num">10</span><div class="course__body"><span class="jp">Nigiri · V</span><h3>Uni gunkan</h3><p>Oursin de Dakhla sur riz tiède, ceinture de nori grillé.</p></div></article>
+      <article class="course rev"><span class="course__num">11</span><div class="course__body"><span class="jp">Tamago</span><h3>L'œuf du chef</h3><p>Quinze couches d'œuf moelleux — la pâtisserie cachée du sushi-ya.</p></div></article>
+      <article class="course rev"><span class="course__num">12</span><div class="course__body"><span class="jp">Mizugashi</span><h3>Fruit de saison</h3><p>Mochi maison, sirop de prune, thé matcha cérémoniel d'Uji.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FULL BLEED QUOTE ===== -->
+<section class="fullbleed rev">
+  <img src="assets/enso-kuro-detail.jpg" alt="">
+  <div class="fullbleed__quote">
+    <blockquote>"Le silence entre deux pièces. C'est <em>là</em> que vit le sushi."</blockquote>
+    <cite>— Chef Celso Szczerba</cite>
+  </div>
+</section>
+
+<!-- ===== CHEF ===== -->
+<section class="chef" id="chef">
+  <div class="chef__image rev">
+    <img src="assets/enso-kuro-chef.jpg" alt="Chef Celso Szczerba">
+  </div>
+  <div class="rev">
+    <p class="chef__sub">Itamae</p>
+    <h2 class="chef__name">Celso <em>Szczerba</em></h2>
+    <p class="chef__role">板前 · Chef du comptoir</p>
+    <p>Vingt années passées entre Tokyo, São Paulo et Marrakech. Une obsession : la précision du geste. Au comptoir d'ENSO, le chef Szczerba travaille seul — pas d'équipe en cuisine, pas de service en salle pour la pièce qui sort de ses mains.</p>
+    <p>Chaque matin, il sélectionne le poisson au port de Casablanca avant l'aube. Chaque soir, il cuisine pour huit personnes. Pas une de plus.</p>
+    <p class="chef__sig">— C.S.</p>
+  </div>
+</section>
+
+<!-- ===== AWARDS ===== -->
+<section class="awards rev">
+  <div class="awards__inner">
+    <div class="award"><div class="award__num">8</div><div class="award__label">Places<br>au comptoir</div></div>
+    <div class="award"><div class="award__num">12</div><div class="award__label">Services<br>par soir</div></div>
+    <div class="award"><div class="award__num">2</div><div class="award__label">Services<br>· 19h · 21h30</div></div>
+    <div class="award"><div class="award__num">25k</div><div class="award__label">Suivent<br>le chef</div></div>
+  </div>
+</section>
+
+<!-- ===== RESERVE ===== -->
+<section class="reserve" id="reserve">
+  <div class="reserve__kanji">予約</div>
+  <div class="reserve__inner">
+    <p class="reserve__sub">Yoyaku · Réservation</p>
+    <h2 class="reserve__title">Une <em>table</em>.<br>Pas plus.</h2>
+    <p class="reserve__text">Le comptoir n'accepte que huit invités par service. La réservation se fait par téléphone — c'est notre première conversation.</p>
+    <a href="tel:+212666014319" class="reserve__cta">Réserver par téléphone</a>
+    <span class="reserve__phone">+212 6 66 01 43 19 · 14h — 22h</span>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="foot__inner">
+    <div>
+      <div class="foot__brand">ENSO</div>
+      <p>Le cercle tracé d'un seul souffle. L'art du sushi à Casablanca.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Adresse</h4>
+      <p>Complexe au Petit Rocher<br>El Cenador<br>Casablanca</p>
+    </div>
+    <div class="foot__col">
+      <h4>Horaires</h4>
+      <p>Mardi — Samedi<br>19h00 — 23h00<br>Fermé Dim. & Lun.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Contact</h4>
+      <a href="tel:+212666014319">+212 6 66 01 43 19</a>
+      <a href="https://instagram.com/enso.casablanca">@enso.casablanca</a>
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>© ENSO Casablanca · 2025</span>
+    <span>円相 · L'art du sushi</span>
+  </div>
+</footer>
+
+<!-- ===== AUDIO ===== -->
+<button class="audio" id="audio" aria-label="Activer l'ambiance sonore">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M11 5L6 9H2v6h4l5 4V5z" stroke-linejoin="round"/>
+    <path d="M15.54 8.46a5 5 0 010 7.07" stroke-linecap="round"/>
+  </svg>
+</button>
+<audio id="ambient" loop preload="auto"><source src="assets/enso-ambiance.mp3" type="audio/mpeg"></audio>
+
+<script>
+  // Reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+  // Audio toggle
+  const btn=document.getElementById('audio'), aud=document.getElementById('ambient');
+  aud.volume=0.4;
+  btn.addEventListener('click',()=>{
+    if(aud.paused){aud.play().then(()=>btn.classList.add('playing'))}
+    else{aud.pause();btn.classList.remove('playing')}
+  });
+</script>
+
+</body>
+</html>
